@@ -3,8 +3,10 @@ const { connection } = require("./config/db");
 const { userRoute } = require("./routes/userRoutes");
 const { appointmentRoute } = require("./routes/appointmentRoute");
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
